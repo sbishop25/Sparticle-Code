@@ -6,7 +6,7 @@ using namespace std;
 
 template<typename T1, typename T2> std::vector<const T1*>
   Removal(std::vector<const T1*>&, std::vector<const T2*>&, const MAdouble64 &);
-
+//new test comment here
 // -----------------------------------------------------------------------------
 // Initialize
 // function called one time at the beginning of the analysis
@@ -203,7 +203,7 @@ plot_MET4 = new TH1F("plot_MET4", "MT2-DF-1J", 9, 100, 280);
 // Finalize
 // function called one time at the end of the analysis
 // -----------------------------------------------------------------------------
-void atlas_susy_2018_32_copy::Finalize(const SampleFormat& summary, 
+void atlas_susy_2018_32_copy::Finalize(const SampleFormat& summary,
                                   const std::vector<SampleFormat>& files){
 TFile* output = new TFile("output.root", "RECREATE");
 plot_MET1->Write();
