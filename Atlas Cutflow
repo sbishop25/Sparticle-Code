@@ -6,8 +6,7 @@ using namespace std;
 
 template<typename T1, typename T2> std::vector<const T1*>
   Removal(std::vector<const T1*>&, std::vector<const T2*>&, const MAdouble64 &);
-//new test comment here
-//and another
+
 // -----------------------------------------------------------------------------
 // Initialize
 // function called one time at the beginning of the analysis
