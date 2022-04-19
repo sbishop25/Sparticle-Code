@@ -184,7 +184,7 @@ bool atlas_susy_2018_32_copy::Initialize(const MA5::Configuration& cfg, const st
   // Manager()->AddCut("$M_{T2} \\in [180, 220]$ [GeV]",     mt2_180_220);
   // Manager()->AddCut("$M_{T2} \\in [220, 260]$ [GeV]",     mt2_220_260);
   // Manager()->AddCut("$M_{T2} \\in [260, \\infty[$ [GeV]", mt2_260_inf);
-  // Manager()->AddCut("$M_{T2} \\in [100, \\infty[$ [GeV]", mt2_100_inf);
+  Manager()->AddCut("$M_{T2} \\in [100, \\infty[$ [GeV]");
   // Manager()->AddCut("$M_{T2} \\in [160, \\infty[$ [GeV]", mt2_160_inf);
   // Manager()->AddCut("$M_{T2} \\in [100, 120]$ [GeV]",     mt2_100_120);
   // Manager()->AddCut("$M_{T2} \\in [120, 160]$ [GeV]",     mt2_120_160);
@@ -200,8 +200,8 @@ Manager()->AddHisto("MT2_0J_mm",9, 100., 280., "SR_0J_mm");
 
 
 plot_MET1 = new TH1F("plot_MET1", "MT2_0J_ee", 9, 100, 280);
-plot_MET1 = new TH1F("plot_MET1", "MT2_0J_em", 9, 100, 280);
-plot_MET1 = new TH1F("plot_MET1", "MT2_0J_mm", 9, 100, 280);
+plot_MET2 = new TH1F("plot_MET2", "MT2_0J_em", 9, 100, 280);
+plot_MET3 = new TH1F("plot_MET3", "MT2_0J_mm", 9, 100, 280);
 
 // plot_MET2 = new TH1F("plot_MET2", "MT2-SF-1J", 9, 100, 280);
 // plot_MET3 = new TH1F("plot_MET3", "MT2-DF-0J", 9, 100, 280);
@@ -221,7 +221,7 @@ TFile* output = new TFile("output.root", "RECREATE");
 plot_MET1->Write();
 plot_MET2->Write();
 plot_MET3->Write();
-plot_MET4->Write();
+// plot_MET4->Write();
 output->Close();
 }
 
@@ -401,38 +401,38 @@ for (MAuint32 lep = 0; lep < SignalLeptons.size(); lep++){
 
   // Histograms
   MAdouble64 mt2 = PHYSICS->Transverse->MT2(SignalLeptons[0],SignalLeptons[1],event.rec()->MET(),0.);
-  Manager()->FillHisto("MT2-SF-0J",mt2);
-  Manager()->FillHisto("MT2-SF-1J",mt2);
-  Manager()->FillHisto("MT2-DF-0J",mt2);
-  Manager()->FillHisto("MT2-DF-1J",mt2);
-if (nj == 0 && hasOSSF == 1) {
+  Manager()->FillHisto("MT2_0J_ee",mt2);
+  Manager()->FillHisto("MT2_0J_em",mt2);
+  Manager()->FillHisto("MT2_0J_mm",mt2);
+  // Manager()->FillHisto("MT2-DF-1J",mt2);
+if (nj == 0 && numElectron==2 && numMuon==0) {
   plot_MET1->Fill(mt2);
 }
-if (nj == 1 && hasOSSF == 1) {
+if (nj == 0 && numElectron==1 && numMuon==1) {
   plot_MET2->Fill(mt2);
 }
-if (nj == 0 && hasOSOF == 1) {
+if (nj == 0 && numElectron==0 && numMuon==2) {
   plot_MET3->Fill(mt2);
 }
-if (nj == 1 && hasOSOF == 1) {
-  plot_MET4->Fill(mt2);
-}
+// if (nj == 1 && hasOSOF == 1) {
+//   plot_MET4->Fill(mt2);
+// }
 
 
   // MT2
-  if(!Manager()->ApplyCut(mt2>100. && mt2<105.,"$M_{T2} \\in [100, 105]$ [GeV]"))     return true;
-  if(!Manager()->ApplyCut(mt2>105. && mt2<110.,"$M_{T2} \\in [105, 110]$ [GeV]"))     return true;
-  if(!Manager()->ApplyCut(mt2>110. && mt2<120.,"$M_{T2} \\in [110, 120]$ [GeV]"))     return true;
-  if(!Manager()->ApplyCut(mt2>120. && mt2<140.,"$M_{T2} \\in [120, 140]$ [GeV]"))     return true;
-  if(!Manager()->ApplyCut(mt2>140. && mt2<160.,"$M_{T2} \\in [140, 160]$ [GeV]"))     return true;
-  if(!Manager()->ApplyCut(mt2>160. && mt2<180.,"$M_{T2} \\in [160, 180]$ [GeV]"))     return true;
-  if(!Manager()->ApplyCut(mt2>180. && mt2<220.,"$M_{T2} \\in [180, 220]$ [GeV]"))     return true;
-  if(!Manager()->ApplyCut(mt2>220. && mt2<260.,"$M_{T2} \\in [220, 260]$ [GeV]"))     return true;
-  if(!Manager()->ApplyCut(mt2>260.            ,"$M_{T2} \\in [260, \\infty[$ [GeV]")) return true;
+  // if(!Manager()->ApplyCut(mt2>100. && mt2<105.,"$M_{T2} \\in [100, 105]$ [GeV]"))     return true;
+  // if(!Manager()->ApplyCut(mt2>105. && mt2<110.,"$M_{T2} \\in [105, 110]$ [GeV]"))     return true;
+  // if(!Manager()->ApplyCut(mt2>110. && mt2<120.,"$M_{T2} \\in [110, 120]$ [GeV]"))     return true;
+  // if(!Manager()->ApplyCut(mt2>120. && mt2<140.,"$M_{T2} \\in [120, 140]$ [GeV]"))     return true;
+  // if(!Manager()->ApplyCut(mt2>140. && mt2<160.,"$M_{T2} \\in [140, 160]$ [GeV]"))     return true;
+  // if(!Manager()->ApplyCut(mt2>160. && mt2<180.,"$M_{T2} \\in [160, 180]$ [GeV]"))     return true;
+  // if(!Manager()->ApplyCut(mt2>180. && mt2<220.,"$M_{T2} \\in [180, 220]$ [GeV]"))     return true;
+  // if(!Manager()->ApplyCut(mt2>220. && mt2<260.,"$M_{T2} \\in [220, 260]$ [GeV]"))     return true;
+  // if(!Manager()->ApplyCut(mt2>260.            ,"$M_{T2} \\in [260, \\infty[$ [GeV]")) return true;
   if(!Manager()->ApplyCut(mt2>100.            ,"$M_{T2} \\in [100, \\infty[$ [GeV]")) return true;
-  if(!Manager()->ApplyCut(mt2>160.            ,"$M_{T2} \\in [160, \\infty[$ [GeV]")) return true;
-  if(!Manager()->ApplyCut(mt2>100. && mt2<120.,"$M_{T2} \\in [100, 120]$ [GeV]"))     return true;
-  if(!Manager()->ApplyCut(mt2>120. && mt2<160.,"$M_{T2} \\in [120, 160]$ [GeV]"))     return true;
+  // if(!Manager()->ApplyCut(mt2>160.            ,"$M_{T2} \\in [160, \\infty[$ [GeV]")) return true;
+  // if(!Manager()->ApplyCut(mt2>100. && mt2<120.,"$M_{T2} \\in [100, 120]$ [GeV]"))     return true;
+  // if(!Manager()->ApplyCut(mt2>120. && mt2<160.,"$M_{T2} \\in [120, 160]$ [GeV]"))     return true;
 
   // Exit
   return true;
