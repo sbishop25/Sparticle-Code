@@ -133,9 +133,9 @@ bool atlas_susy_2018_32_copy::Initialize(const MA5::Configuration& cfg, const st
   //    "SR_DF_1J_MT2_220_260", "SR_DF_1J_MT2_260_inf", "SR_DF_1J_MT2_100_inf",
   //    "SR_DF_1J_MT2_160_inf", "SR_DF_1J_MT2_100_120", "SR_DF_1J_MT2_120_160"};
 
-  Manager()->AddCut("2 Electrons", "SR_0J_ee");
-  Manager()->AddCut("2 Muons", "SR_0J_mm");
-  Manager()->AddCut("1 Electron 1 Muon", "SR_0J_em");
+  Manager()->AddCut("2_Electrons", "SR_0J_ee");
+  Manager()->AddCut("2_Muons", "SR_0J_mm");
+  Manager()->AddCut("1_Electron_1_Muon", "SR_0J_em");
   // Manager()->AddCut("DF dilep. \\& $N_j=1$", DF1J);
   // Manager()->AddCut("SF dilep. \\& $N_j=0$", SF0J);
   // Manager()->AddCut("SF dilep. \\& $N_j=1$", SF1J);
@@ -299,6 +299,8 @@ bool atlas_susy_2018_32_copy::Execute(SampleFormat& sample, const EventFormat& e
     HT += Jets[i]->pt();
   }
 
+
+
   // Leptons
   std::vector<const RecLeptonFormat*> SignalLeptons;
   for(MAuint32 i=0; i<SignalMuons.size(); i++)
@@ -330,6 +332,12 @@ bool atlas_susy_2018_32_copy::Execute(SampleFormat& sample, const EventFormat& e
     }
   }
 
+
+// DETERMINE WHICH LEPTONS ARE IN EVENT
+
+
+
+
   //==================//
   //==== Cut Flow ====//
   //==================//
@@ -351,14 +359,21 @@ bool atlas_susy_2018_32_copy::Execute(SampleFormat& sample, const EventFormat& e
   // SF vs DF & Njets
   MAuint32 nj = Jets.size();
 
-  // SF-DF & Njet cuts
-  if(!Manager()->ApplyCut(hasOSOF==1 && nj==0, "DF dilep. \\& $N_j=0$")) return true;
-  if(!Manager()->ApplyCut(hasOSOF==1 && nj==1, "DF dilep. \\& $N_j=1$")) return true;
-  if(!Manager()->ApplyCut(hasOSSF==1 && nj==0, "SF dilep. \\& $N_j=0$")) return true;
-  if(!Manager()->ApplyCut(hasOSSF==1 && nj==1, "SF dilep. \\& $N_j=1$")) return true;
+  // // SF-DF & Njet cuts
+  // if(!Manager()->ApplyCut(hasOSOF==1 && nj==0, "DF dilep. \\& $N_j=0$")) return true;
+  // if(!Manager()->ApplyCut(hasOSOF==1 && nj==1, "DF dilep. \\& $N_j=1$")) return true;
+  // if(!Manager()->ApplyCut(hasOSSF==1 && nj==0, "SF dilep. \\& $N_j=0$")) return true;
+  // if(!Manager()->ApplyCut(hasOSSF==1 && nj==1, "SF dilep. \\& $N_j=1$")) return true;
+  //
+  // if(!Manager()->ApplyCut(mll>100.,  "$m_{l_1,l_2} > 100$ [GeV]"))   return true;
+  // if(!Manager()->ApplyCut(mll>121.2, "$m_{l_1,l_2} > 121.2$ [GeV]")) return true;
 
-  if(!Manager()->ApplyCut(mll>100.,  "$m_{l_1,l_2} > 100$ [GeV]"))   return true;
-  if(!Manager()->ApplyCut(mll>121.2, "$m_{l_1,l_2} > 121.2$ [GeV]")) return true;
+
+// OUR LEPTON CUTS
+
+
+
+
 
   // Other preselection cuts
   MAdouble64 METSig = 11.;
