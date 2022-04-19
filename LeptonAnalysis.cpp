@@ -1,5 +1,5 @@
 //Modify include statements when running
-#include "SampleAnalyzer/User/Analyzer/atlas_susy_2018_32_copy.h"
+#include "SampleAnalyzer/User/Analyzer/LeptonAnalysis.h"
 #include <TFile.h>
 #include <TH1F.h>
 using namespace MA5;
@@ -11,7 +11,7 @@ template<typename T1, typename T2> std::vector<const T1*>
 // Initialize
 // function called one time at the beginning of the analysis
 // -----------------------------------------------------------------------------
-bool atlas_susy_2018_32_copy::Initialize(const MA5::Configuration& cfg, const std::map<std::string,std::string>& parameters)
+bool LeptonAnalysis::Initialize(const MA5::Configuration& cfg, const std::map<std::string,std::string>& parameters)
 {
 
   INFO << "   <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>" << endmsg;
@@ -216,7 +216,7 @@ Manager()->AddHisto("MT2_0J_mm",9, 100., 280., "SR_0J_mm");
 // Finalize
 // function called one time at the end of the analysis
 // -----------------------------------------------------------------------------
-void atlas_susy_2018_32_copy::Finalize(const SampleFormat& summary,
+void LeptonAnalysis::Finalize(const SampleFormat& summary,
                                   const std::vector<SampleFormat>& files){
 // TFile* output = new TFile("output.root", "RECREATE");
 // plot_MET1->Write();
@@ -230,7 +230,7 @@ void atlas_susy_2018_32_copy::Finalize(const SampleFormat& summary,
 // Execute
 // function called each time one event is read
 // -----------------------------------------------------------------------------
-bool atlas_susy_2018_32_copy::Execute(SampleFormat& sample, const EventFormat& event)
+bool LeptonAnalysis::Execute(SampleFormat& sample, const EventFormat& event)
 {
   // Event weight
   MAdouble64 myWeight;
