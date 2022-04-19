@@ -22,66 +22,69 @@ bool atlas_susy_2018_32_copy::Initialize(const MA5::Configuration& cfg, const st
   INFO << "   <>  Based on MadAnalysis 5 v1.8                                     <>" << endmsg;
   INFO << "   <>      DOI: XX.YYYY/ZZZ                                            <>" << endmsg;
   INFO << "   <>                                                                  <>" << endmsg;
+  INFO << "   <>  Modified by N. Kirby, S. Bishop 2022                            <>" << endmsg;
   INFO << "   <>  For more information, see                                       <>" << endmsg;
   INFO << "   <>  http://madanalysis.irmp.ucl.ac.be/wiki/PublicAnalysisDatabase   <>" << endmsg;
   INFO << "   <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>" << endmsg;
 
   // Declaration of the signal regions
-  Manager()->AddRegionSelection("SR_DF_0J_MT2_100_105");
-  Manager()->AddRegionSelection("SR_DF_0J_MT2_105_110");
-  Manager()->AddRegionSelection("SR_DF_0J_MT2_110_120");
-  Manager()->AddRegionSelection("SR_DF_0J_MT2_120_140");
-  Manager()->AddRegionSelection("SR_DF_0J_MT2_140_160");
-  Manager()->AddRegionSelection("SR_DF_0J_MT2_160_180");
-  Manager()->AddRegionSelection("SR_DF_0J_MT2_180_220");
-  Manager()->AddRegionSelection("SR_DF_0J_MT2_220_260");
-  Manager()->AddRegionSelection("SR_DF_0J_MT2_260_inf");
-  Manager()->AddRegionSelection("SR_DF_0J_MT2_100_inf");
-  Manager()->AddRegionSelection("SR_DF_0J_MT2_160_inf");
-  Manager()->AddRegionSelection("SR_DF_0J_MT2_100_120");
-  Manager()->AddRegionSelection("SR_DF_0J_MT2_120_160");
+  // Manager()->AddRegionSelection("SR_DF_0J_MT2_100_105");
+  // Manager()->AddRegionSelection("SR_DF_0J_MT2_105_110");
+  // Manager()->AddRegionSelection("SR_DF_0J_MT2_110_120");
+  // Manager()->AddRegionSelection("SR_DF_0J_MT2_120_140");
+  // Manager()->AddRegionSelection("SR_DF_0J_MT2_140_160");
+  // Manager()->AddRegionSelection("SR_DF_0J_MT2_160_180");
+  // Manager()->AddRegionSelection("SR_DF_0J_MT2_180_220");
+  // Manager()->AddRegionSelection("SR_DF_0J_MT2_220_260");
+  // Manager()->AddRegionSelection("SR_DF_0J_MT2_260_inf");
+  // Manager()->AddRegionSelection("SR_DF_0J_MT2_100_inf");
+  // Manager()->AddRegionSelection("SR_DF_0J_MT2_160_inf");
+  // Manager()->AddRegionSelection("SR_DF_0J_MT2_100_120");
+  // Manager()->AddRegionSelection("SR_DF_0J_MT2_120_160");
+  //
+  // Manager()->AddRegionSelection("SR_DF_1J_MT2_100_105");
+  // Manager()->AddRegionSelection("SR_DF_1J_MT2_105_110");
+  // Manager()->AddRegionSelection("SR_DF_1J_MT2_110_120");
+  // Manager()->AddRegionSelection("SR_DF_1J_MT2_120_140");
+  // Manager()->AddRegionSelection("SR_DF_1J_MT2_140_160");
+  // Manager()->AddRegionSelection("SR_DF_1J_MT2_160_180");
+  // Manager()->AddRegionSelection("SR_DF_1J_MT2_180_220");
+  // Manager()->AddRegionSelection("SR_DF_1J_MT2_220_260");
+  // Manager()->AddRegionSelection("SR_DF_1J_MT2_260_inf");
+  // Manager()->AddRegionSelection("SR_DF_1J_MT2_100_inf");
+  // Manager()->AddRegionSelection("SR_DF_1J_MT2_160_inf");
+  // Manager()->AddRegionSelection("SR_DF_1J_MT2_100_120");
+  // Manager()->AddRegionSelection("SR_DF_1J_MT2_120_160");
 
-  Manager()->AddRegionSelection("SR_DF_1J_MT2_100_105");
-  Manager()->AddRegionSelection("SR_DF_1J_MT2_105_110");
-  Manager()->AddRegionSelection("SR_DF_1J_MT2_110_120");
-  Manager()->AddRegionSelection("SR_DF_1J_MT2_120_140");
-  Manager()->AddRegionSelection("SR_DF_1J_MT2_140_160");
-  Manager()->AddRegionSelection("SR_DF_1J_MT2_160_180");
-  Manager()->AddRegionSelection("SR_DF_1J_MT2_180_220");
-  Manager()->AddRegionSelection("SR_DF_1J_MT2_220_260");
-  Manager()->AddRegionSelection("SR_DF_1J_MT2_260_inf");
-  Manager()->AddRegionSelection("SR_DF_1J_MT2_100_inf");
-  Manager()->AddRegionSelection("SR_DF_1J_MT2_160_inf");
-  Manager()->AddRegionSelection("SR_DF_1J_MT2_100_120");
-  Manager()->AddRegionSelection("SR_DF_1J_MT2_120_160");
+  // Manager()->AddRegionSelection("SR_SF_0J_MT2_100_105");
+  // Manager()->AddRegionSelection("SR_SF_0J_MT2_105_110");
+  // Manager()->AddRegionSelection("SR_SF_0J_MT2_110_120");
+  // Manager()->AddRegionSelection("SR_SF_0J_MT2_120_140");
+  // Manager()->AddRegionSelection("SR_SF_0J_MT2_140_160");
+  // Manager()->AddRegionSelection("SR_SF_0J_MT2_160_180");
+  // Manager()->AddRegionSelection("SR_SF_0J_MT2_180_220");
+  // Manager()->AddRegionSelection("SR_SF_0J_MT2_220_260");
+  // Manager()->AddRegionSelection("SR_SF_0J_MT2_260_inf");
+  Manager()->AddRegionSelection("SR_0J_ee");
+  Manager()->AddRegionSelection("SR_0J_em");
+  Manager()->AddRegionSelection("SR_0J_mm");
+  // Manager()->AddRegionSelection("SR_SF_0J_MT2_160_inf");
+  // Manager()->AddRegionSelection("SR_SF_0J_MT2_100_120");
+  // Manager()->AddRegionSelection("SR_SF_0J_MT2_120_160");
 
-  Manager()->AddRegionSelection("SR_SF_0J_MT2_100_105");
-  Manager()->AddRegionSelection("SR_SF_0J_MT2_105_110");
-  Manager()->AddRegionSelection("SR_SF_0J_MT2_110_120");
-  Manager()->AddRegionSelection("SR_SF_0J_MT2_120_140");
-  Manager()->AddRegionSelection("SR_SF_0J_MT2_140_160");
-  Manager()->AddRegionSelection("SR_SF_0J_MT2_160_180");
-  Manager()->AddRegionSelection("SR_SF_0J_MT2_180_220");
-  Manager()->AddRegionSelection("SR_SF_0J_MT2_220_260");
-  Manager()->AddRegionSelection("SR_SF_0J_MT2_260_inf");
-  Manager()->AddRegionSelection("SR_SF_0J_MT2_100_inf");
-  Manager()->AddRegionSelection("SR_SF_0J_MT2_160_inf");
-  Manager()->AddRegionSelection("SR_SF_0J_MT2_100_120");
-  Manager()->AddRegionSelection("SR_SF_0J_MT2_120_160");
-
-  Manager()->AddRegionSelection("SR_SF_1J_MT2_100_105");
-  Manager()->AddRegionSelection("SR_SF_1J_MT2_105_110");
-  Manager()->AddRegionSelection("SR_SF_1J_MT2_110_120");
-  Manager()->AddRegionSelection("SR_SF_1J_MT2_120_140");
-  Manager()->AddRegionSelection("SR_SF_1J_MT2_140_160");
-  Manager()->AddRegionSelection("SR_SF_1J_MT2_160_180");
-  Manager()->AddRegionSelection("SR_SF_1J_MT2_180_220");
-  Manager()->AddRegionSelection("SR_SF_1J_MT2_220_260");
-  Manager()->AddRegionSelection("SR_SF_1J_MT2_260_inf");
-  Manager()->AddRegionSelection("SR_SF_1J_MT2_100_inf");
-  Manager()->AddRegionSelection("SR_SF_1J_MT2_160_inf");
-  Manager()->AddRegionSelection("SR_SF_1J_MT2_100_120");
-  Manager()->AddRegionSelection("SR_SF_1J_MT2_120_160");
+  // Manager()->AddRegionSelection("SR_SF_1J_MT2_100_105");
+  // Manager()->AddRegionSelection("SR_SF_1J_MT2_105_110");
+  // Manager()->AddRegionSelection("SR_SF_1J_MT2_110_120");
+  // Manager()->AddRegionSelection("SR_SF_1J_MT2_120_140");
+  // Manager()->AddRegionSelection("SR_SF_1J_MT2_140_160");
+  // Manager()->AddRegionSelection("SR_SF_1J_MT2_160_180");
+  // Manager()->AddRegionSelection("SR_SF_1J_MT2_180_220");
+  // Manager()->AddRegionSelection("SR_SF_1J_MT2_220_260");
+  // Manager()->AddRegionSelection("SR_SF_1J_MT2_260_inf");
+  // Manager()->AddRegionSelection("SR_1J");
+  // Manager()->AddRegionSelection("SR_SF_1J_MT2_160_inf");
+  // Manager()->AddRegionSelection("SR_SF_1J_MT2_100_120");
+  // Manager()->AddRegionSelection("SR_SF_1J_MT2_120_160");
 
   // Declaration of the preselection cuts
   Manager()->AddCut("OS dilep. with $p^l_T>25$ [GeV]");
@@ -89,100 +92,102 @@ bool atlas_susy_2018_32_copy::Initialize(const MA5::Configuration& cfg, const st
   Manager()->AddCut("b veto");
 
   // SF vs DF  and Njet cuts
-  std::string SF[]      = {  "SR_SF_0J_MT2_100_105", "SR_SF_0J_MT2_105_110",
-      "SR_SF_0J_MT2_110_120", "SR_SF_0J_MT2_120_140", "SR_SF_0J_MT2_140_160",
-      "SR_SF_0J_MT2_160_180", "SR_SF_0J_MT2_180_220", "SR_SF_0J_MT2_220_260",
-      "SR_SF_0J_MT2_260_inf", "SR_SF_0J_MT2_100_inf", "SR_SF_0J_MT2_160_inf",
-      "SR_SF_0J_MT2_100_120", "SR_SF_0J_MT2_120_160", "SR_SF_1J_MT2_100_105",
-      "SR_SF_1J_MT2_105_110", "SR_SF_1J_MT2_110_120", "SR_SF_1J_MT2_120_140",
-      "SR_SF_1J_MT2_140_160", "SR_SF_1J_MT2_160_180", "SR_SF_1J_MT2_180_220",
-      "SR_SF_1J_MT2_220_260", "SR_SF_1J_MT2_260_inf", "SR_SF_1J_MT2_100_inf",
-      "SR_SF_1J_MT2_160_inf", "SR_SF_1J_MT2_100_120", "SR_SF_1J_MT2_120_160" };
-  std::string DF[]      = {  "SR_DF_0J_MT2_100_105", "SR_DF_0J_MT2_105_110",
-      "SR_DF_0J_MT2_110_120", "SR_DF_0J_MT2_120_140", "SR_DF_0J_MT2_140_160",
-      "SR_DF_0J_MT2_160_180", "SR_DF_0J_MT2_180_220", "SR_DF_0J_MT2_220_260",
-      "SR_DF_0J_MT2_260_inf", "SR_DF_0J_MT2_100_inf", "SR_DF_0J_MT2_160_inf",
-      "SR_DF_0J_MT2_100_120", "SR_DF_0J_MT2_120_160", "SR_DF_1J_MT2_100_105",
-      "SR_DF_1J_MT2_105_110", "SR_DF_1J_MT2_110_120", "SR_DF_1J_MT2_120_140",
-      "SR_DF_1J_MT2_140_160", "SR_DF_1J_MT2_160_180", "SR_DF_1J_MT2_180_220",
-      "SR_DF_1J_MT2_220_260", "SR_DF_1J_MT2_260_inf", "SR_DF_1J_MT2_100_inf",
-      "SR_DF_1J_MT2_160_inf", "SR_DF_1J_MT2_100_120", "SR_DF_1J_MT2_120_160" };
+  // std::string SF[]      = {  "SR_SF_0J_MT2_100_105", "SR_SF_0J_MT2_105_110",
+  //     "SR_SF_0J_MT2_110_120", "SR_SF_0J_MT2_120_140", "SR_SF_0J_MT2_140_160",
+  //     "SR_SF_0J_MT2_160_180", "SR_SF_0J_MT2_180_220", "SR_SF_0J_MT2_220_260",
+  //     "SR_SF_0J_MT2_260_inf", "SR_SF_0J_MT2_100_inf", "SR_SF_0J_MT2_160_inf",
+  //     "SR_SF_0J_MT2_100_120", "SR_SF_0J_MT2_120_160", "SR_SF_1J_MT2_100_105",
+  //     "SR_SF_1J_MT2_105_110", "SR_SF_1J_MT2_110_120", "SR_SF_1J_MT2_120_140",
+  //     "SR_SF_1J_MT2_140_160", "SR_SF_1J_MT2_160_180", "SR_SF_1J_MT2_180_220",
+  //     "SR_SF_1J_MT2_220_260", "SR_SF_1J_MT2_260_inf", "SR_SF_1J_MT2_100_inf",
+  //     "SR_SF_1J_MT2_160_inf", "SR_SF_1J_MT2_100_120", "SR_SF_1J_MT2_120_160" };
+  // std::string DF[]      = {  "SR_DF_0J_MT2_100_105", "SR_DF_0J_MT2_105_110",
+  //     "SR_DF_0J_MT2_110_120", "SR_DF_0J_MT2_120_140", "SR_DF_0J_MT2_140_160",
+  //     "SR_DF_0J_MT2_160_180", "SR_DF_0J_MT2_180_220", "SR_DF_0J_MT2_220_260",
+  //     "SR_DF_0J_MT2_260_inf", "SR_DF_0J_MT2_100_inf", "SR_DF_0J_MT2_160_inf",
+  //     "SR_DF_0J_MT2_100_120", "SR_DF_0J_MT2_120_160", "SR_DF_1J_MT2_100_105",
+  //     "SR_DF_1J_MT2_105_110", "SR_DF_1J_MT2_110_120", "SR_DF_1J_MT2_120_140",
+  //     "SR_DF_1J_MT2_140_160", "SR_DF_1J_MT2_160_180", "SR_DF_1J_MT2_180_220",
+  //     "SR_DF_1J_MT2_220_260", "SR_DF_1J_MT2_260_inf", "SR_DF_1J_MT2_100_inf",
+  //     "SR_DF_1J_MT2_160_inf", "SR_DF_1J_MT2_100_120", "SR_DF_1J_MT2_120_160" };
+  //
+  // std::string SF0J[]    = {  "SR_SF_0J_MT2_100_105", "SR_SF_0J_MT2_105_110",
+  //    "SR_SF_0J_MT2_110_120", "SR_SF_0J_MT2_120_140", "SR_SF_0J_MT2_140_160",
+  //    "SR_SF_0J_MT2_160_180", "SR_SF_0J_MT2_180_220", "SR_SF_0J_MT2_220_260",
+  //    "SR_SF_0J_MT2_260_inf", "SR_SF_0J_MT2_100_inf", "SR_SF_0J_MT2_160_inf",
+  //    "SR_SF_0J_MT2_100_120", "SR_SF_0J_MT2_120_160"};
+  // std::string SF1J[]    = {  "SR_SF_1J_MT2_100_105",
+  //    "SR_SF_1J_MT2_105_110", "SR_SF_1J_MT2_110_120", "SR_SF_1J_MT2_120_140",
+  //    "SR_SF_1J_MT2_140_160", "SR_SF_1J_MT2_160_180", "SR_SF_1J_MT2_180_220",
+  //    "SR_SF_1J_MT2_220_260", "SR_SF_1J_MT2_260_inf", "SR_SF_1J_MT2_100_inf",
+  //    "SR_SF_1J_MT2_160_inf", "SR_SF_1J_MT2_100_120", "SR_SF_1J_MT2_120_160"};
+  //
+  // std::string DF0J[]    = {  "SR_DF_0J_MT2_100_105", "SR_DF_0J_MT2_105_110",
+  //    "SR_DF_0J_MT2_110_120", "SR_DF_0J_MT2_120_140", "SR_DF_0J_MT2_140_160",
+  //    "SR_DF_0J_MT2_160_180", "SR_DF_0J_MT2_180_220", "SR_DF_0J_MT2_220_260",
+  //    "SR_DF_0J_MT2_260_inf", "SR_DF_0J_MT2_100_inf", "SR_DF_0J_MT2_160_inf",
+  //    "SR_DF_0J_MT2_100_120", "SR_DF_0J_MT2_120_160"};
+  // std::string DF1J[]    = {  "SR_DF_1J_MT2_100_105",
+  //    "SR_DF_1J_MT2_105_110", "SR_DF_1J_MT2_110_120", "SR_DF_1J_MT2_120_140",
+  //    "SR_DF_1J_MT2_140_160", "SR_DF_1J_MT2_160_180", "SR_DF_1J_MT2_180_220",
+  //    "SR_DF_1J_MT2_220_260", "SR_DF_1J_MT2_260_inf", "SR_DF_1J_MT2_100_inf",
+  //    "SR_DF_1J_MT2_160_inf", "SR_DF_1J_MT2_100_120", "SR_DF_1J_MT2_120_160"};
 
-  std::string SF0J[]    = {  "SR_SF_0J_MT2_100_105", "SR_SF_0J_MT2_105_110",
-     "SR_SF_0J_MT2_110_120", "SR_SF_0J_MT2_120_140", "SR_SF_0J_MT2_140_160",
-     "SR_SF_0J_MT2_160_180", "SR_SF_0J_MT2_180_220", "SR_SF_0J_MT2_220_260",
-     "SR_SF_0J_MT2_260_inf", "SR_SF_0J_MT2_100_inf", "SR_SF_0J_MT2_160_inf",
-     "SR_SF_0J_MT2_100_120", "SR_SF_0J_MT2_120_160"};
-  std::string SF1J[]    = {  "SR_SF_1J_MT2_100_105",
-     "SR_SF_1J_MT2_105_110", "SR_SF_1J_MT2_110_120", "SR_SF_1J_MT2_120_140",
-     "SR_SF_1J_MT2_140_160", "SR_SF_1J_MT2_160_180", "SR_SF_1J_MT2_180_220",
-     "SR_SF_1J_MT2_220_260", "SR_SF_1J_MT2_260_inf", "SR_SF_1J_MT2_100_inf",
-     "SR_SF_1J_MT2_160_inf", "SR_SF_1J_MT2_100_120", "SR_SF_1J_MT2_120_160"};
+  Manager()->AddCut("2 Electrons", "SR_0J_ee");
+  Manager()->AddCut("2 Muons", "SR_0J_mm");
+  Manager()->AddCut("1 Electron 1 Muon", "SR_0J_em");
+  // Manager()->AddCut("DF dilep. \\& $N_j=1$", DF1J);
+  // Manager()->AddCut("SF dilep. \\& $N_j=0$", SF0J);
+  // Manager()->AddCut("SF dilep. \\& $N_j=1$", SF1J);
 
-  std::string DF0J[]    = {  "SR_DF_0J_MT2_100_105", "SR_DF_0J_MT2_105_110",
-     "SR_DF_0J_MT2_110_120", "SR_DF_0J_MT2_120_140", "SR_DF_0J_MT2_140_160",
-     "SR_DF_0J_MT2_160_180", "SR_DF_0J_MT2_180_220", "SR_DF_0J_MT2_220_260",
-     "SR_DF_0J_MT2_260_inf", "SR_DF_0J_MT2_100_inf", "SR_DF_0J_MT2_160_inf",
-     "SR_DF_0J_MT2_100_120", "SR_DF_0J_MT2_120_160"};
-  std::string DF1J[]    = {  "SR_DF_1J_MT2_100_105",
-     "SR_DF_1J_MT2_105_110", "SR_DF_1J_MT2_110_120", "SR_DF_1J_MT2_120_140",
-     "SR_DF_1J_MT2_140_160", "SR_DF_1J_MT2_160_180", "SR_DF_1J_MT2_180_220",
-     "SR_DF_1J_MT2_220_260", "SR_DF_1J_MT2_260_inf", "SR_DF_1J_MT2_100_inf",
-     "SR_DF_1J_MT2_160_inf", "SR_DF_1J_MT2_100_120", "SR_DF_1J_MT2_120_160"};
-
-  Manager()->AddCut("DF dilep. \\& $N_j=0$", DF0J);
-  Manager()->AddCut("DF dilep. \\& $N_j=1$", DF1J);
-  Manager()->AddCut("SF dilep. \\& $N_j=0$", SF0J);
-  Manager()->AddCut("SF dilep. \\& $N_j=1$", SF1J);
-
-  Manager()->AddCut("$m_{l_1,l_2} > 100$ [GeV]",   DF);
-  Manager()->AddCut("$m_{l_1,l_2} > 121.2$ [GeV]", SF);
+  // Manager()->AddCut("$m_{l_1,l_2} > 100$ [GeV]",   DF);
+  // Manager()->AddCut("$m_{l_1,l_2} > 121.2$ [GeV]", SF);
 
   // Other preselection cuts
   Manager()->AddCut("$\\slashed{E}_T > 110$ [GeV]");
   Manager()->AddCut("$\\slashed{E}_T$ Sig. $> 10$ [$\\sqrt{\\rm GeV}$]");
 
   // MT2 cuts
-  std::string mt2_100_105[] = {"SR_DF_0J_MT2_100_105", "SR_DF_1J_MT2_100_105",
-     "SR_SF_0J_MT2_100_105", "SR_SF_1J_MT2_100_105"};
-  std::string mt2_105_110[] = {"SR_DF_0J_MT2_105_110", "SR_DF_1J_MT2_105_110",
-     "SR_SF_0J_MT2_105_110", "SR_SF_1J_MT2_105_110"};
-  std::string mt2_110_120[] = {"SR_DF_0J_MT2_110_120", "SR_DF_1J_MT2_110_120",
-     "SR_SF_0J_MT2_110_120", "SR_SF_1J_MT2_110_120"};
-  std::string mt2_120_140[] = {"SR_DF_0J_MT2_120_140", "SR_DF_1J_MT2_120_140",
-     "SR_SF_0J_MT2_120_140", "SR_SF_1J_MT2_120_140"};
-  std::string mt2_140_160[] = {"SR_DF_0J_MT2_140_160", "SR_DF_1J_MT2_140_160",
-     "SR_SF_0J_MT2_140_160", "SR_SF_1J_MT2_140_160"};
-  std::string mt2_160_180[] = {"SR_DF_0J_MT2_160_180", "SR_DF_1J_MT2_160_180",
-     "SR_SF_0J_MT2_160_180", "SR_SF_1J_MT2_160_180"};
-  std::string mt2_180_220[] = {"SR_DF_0J_MT2_180_220", "SR_DF_1J_MT2_180_220",
-     "SR_SF_0J_MT2_180_220", "SR_SF_1J_MT2_180_220"};
-  std::string mt2_220_260[] = {"SR_DF_0J_MT2_220_260", "SR_DF_1J_MT2_220_260",
-     "SR_SF_0J_MT2_220_260", "SR_SF_1J_MT2_220_260"};
-  std::string mt2_260_inf[] = {"SR_DF_0J_MT2_260_inf", "SR_DF_1J_MT2_260_inf",
-     "SR_SF_0J_MT2_260_inf", "SR_SF_1J_MT2_260_inf"};
-  std::string mt2_100_inf[] = {"SR_DF_0J_MT2_100_inf", "SR_DF_1J_MT2_100_inf",
-     "SR_SF_0J_MT2_100_inf", "SR_SF_1J_MT2_100_inf"};
-  std::string mt2_160_inf[] = {"SR_DF_0J_MT2_160_inf", "SR_DF_1J_MT2_160_inf",
-     "SR_SF_0J_MT2_160_inf", "SR_SF_1J_MT2_160_inf"};
-  std::string mt2_100_120[] = {"SR_DF_0J_MT2_100_120", "SR_DF_1J_MT2_100_120",
-     "SR_SF_0J_MT2_100_120", "SR_SF_1J_MT2_100_120"};
-  std::string mt2_120_160[] = {"SR_DF_0J_MT2_120_160", "SR_DF_1J_MT2_120_160",
-     "SR_SF_0J_MT2_120_160", "SR_SF_1J_MT2_120_160"};
-
-  Manager()->AddCut("$M_{T2} \\in [100, 105]$ [GeV]",     mt2_100_105);
-  Manager()->AddCut("$M_{T2} \\in [105, 110]$ [GeV]",     mt2_105_110);
-  Manager()->AddCut("$M_{T2} \\in [110, 120]$ [GeV]",     mt2_110_120);
-  Manager()->AddCut("$M_{T2} \\in [120, 140]$ [GeV]",     mt2_120_140);
-  Manager()->AddCut("$M_{T2} \\in [140, 160]$ [GeV]",     mt2_140_160);
-  Manager()->AddCut("$M_{T2} \\in [160, 180]$ [GeV]",     mt2_160_180);
-  Manager()->AddCut("$M_{T2} \\in [180, 220]$ [GeV]",     mt2_180_220);
-  Manager()->AddCut("$M_{T2} \\in [220, 260]$ [GeV]",     mt2_220_260);
-  Manager()->AddCut("$M_{T2} \\in [260, \\infty[$ [GeV]", mt2_260_inf);
-  Manager()->AddCut("$M_{T2} \\in [100, \\infty[$ [GeV]", mt2_100_inf);
-  Manager()->AddCut("$M_{T2} \\in [160, \\infty[$ [GeV]", mt2_160_inf);
-  Manager()->AddCut("$M_{T2} \\in [100, 120]$ [GeV]",     mt2_100_120);
-  Manager()->AddCut("$M_{T2} \\in [120, 160]$ [GeV]",     mt2_120_160);
+  // std::string mt2_100_105[] = {"SR_DF_0J_MT2_100_105", "SR_DF_1J_MT2_100_105",
+  //    "SR_SF_0J_MT2_100_105", "SR_SF_1J_MT2_100_105"};
+  // std::string mt2_105_110[] = {"SR_DF_0J_MT2_105_110", "SR_DF_1J_MT2_105_110",
+  //    "SR_SF_0J_MT2_105_110", "SR_SF_1J_MT2_105_110"};
+  // std::string mt2_110_120[] = {"SR_DF_0J_MT2_110_120", "SR_DF_1J_MT2_110_120",
+  //    "SR_SF_0J_MT2_110_120", "SR_SF_1J_MT2_110_120"};
+  // std::string mt2_120_140[] = {"SR_DF_0J_MT2_120_140", "SR_DF_1J_MT2_120_140",
+  //    "SR_SF_0J_MT2_120_140", "SR_SF_1J_MT2_120_140"};
+  // std::string mt2_140_160[] = {"SR_DF_0J_MT2_140_160", "SR_DF_1J_MT2_140_160",
+  //    "SR_SF_0J_MT2_140_160", "SR_SF_1J_MT2_140_160"};
+  // std::string mt2_160_180[] = {"SR_DF_0J_MT2_160_180", "SR_DF_1J_MT2_160_180",
+  //    "SR_SF_0J_MT2_160_180", "SR_SF_1J_MT2_160_180"};
+  // std::string mt2_180_220[] = {"SR_DF_0J_MT2_180_220", "SR_DF_1J_MT2_180_220",
+  //    "SR_SF_0J_MT2_180_220", "SR_SF_1J_MT2_180_220"};
+  // std::string mt2_220_260[] = {"SR_DF_0J_MT2_220_260", "SR_DF_1J_MT2_220_260",
+  //    "SR_SF_0J_MT2_220_260", "SR_SF_1J_MT2_220_260"};
+  // std::string mt2_260_inf[] = {"SR_DF_0J_MT2_260_inf", "SR_DF_1J_MT2_260_inf",
+  //    "SR_SF_0J_MT2_260_inf", "SR_SF_1J_MT2_260_inf"};
+  // std::string mt2_100_inf[] = {"SR_DF_0J_MT2_100_inf", "SR_DF_1J_MT2_100_inf",
+  //    "SR_SF_0J_MT2_100_inf", "SR_SF_1J_MT2_100_inf"};
+  // std::string mt2_160_inf[] = {"SR_DF_0J_MT2_160_inf", "SR_DF_1J_MT2_160_inf",
+  //    "SR_SF_0J_MT2_160_inf", "SR_SF_1J_MT2_160_inf"};
+  // std::string mt2_100_120[] = {"SR_DF_0J_MT2_100_120", "SR_DF_1J_MT2_100_120",
+  //    "SR_SF_0J_MT2_100_120", "SR_SF_1J_MT2_100_120"};
+  // std::string mt2_120_160[] = {"SR_DF_0J_MT2_120_160", "SR_DF_1J_MT2_120_160",
+  //    "SR_SF_0J_MT2_120_160", "SR_SF_1J_MT2_120_160"};
+  //
+  // Manager()->AddCut("$M_{T2} \\in [100, 105]$ [GeV]",     mt2_100_105);
+  // Manager()->AddCut("$M_{T2} \\in [105, 110]$ [GeV]",     mt2_105_110);
+  // Manager()->AddCut("$M_{T2} \\in [110, 120]$ [GeV]",     mt2_110_120);
+  // Manager()->AddCut("$M_{T2} \\in [120, 140]$ [GeV]",     mt2_120_140);
+  // Manager()->AddCut("$M_{T2} \\in [140, 160]$ [GeV]",     mt2_140_160);
+  // Manager()->AddCut("$M_{T2} \\in [160, 180]$ [GeV]",     mt2_160_180);
+  // Manager()->AddCut("$M_{T2} \\in [180, 220]$ [GeV]",     mt2_180_220);
+  // Manager()->AddCut("$M_{T2} \\in [220, 260]$ [GeV]",     mt2_220_260);
+  // Manager()->AddCut("$M_{T2} \\in [260, \\infty[$ [GeV]", mt2_260_inf);
+  // Manager()->AddCut("$M_{T2} \\in [100, \\infty[$ [GeV]", mt2_100_inf);
+  // Manager()->AddCut("$M_{T2} \\in [160, \\infty[$ [GeV]", mt2_160_inf);
+  // Manager()->AddCut("$M_{T2} \\in [100, 120]$ [GeV]",     mt2_100_120);
+  // Manager()->AddCut("$M_{T2} \\in [120, 160]$ [GeV]",     mt2_120_160);
 
   // Histogram declaration
   Manager()->AddHisto("MT2-SF-0J",9, 100., 280., SF0J);
