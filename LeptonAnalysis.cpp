@@ -335,7 +335,17 @@ bool atlas_susy_2018_32_copy::Execute(SampleFormat& sample, const EventFormat& e
 
 // DETERMINE WHICH LEPTONS ARE IN EVENT
 
+MAuint32 numElectron   = 0;
+MAuint32 numMuon = 0;
 
+for (MAuint32 lep = 0; lep < SignalLeptons.size(); lep++){
+  if (SignalLeptons[lep]->isElectron()) {
+    numElectron++;
+  }
+  else if (SignalLeptons[lep]->isMuon()) {
+    numMuon++;
+  }
+}
 
 
   //==================//
@@ -370,9 +380,9 @@ bool atlas_susy_2018_32_copy::Execute(SampleFormat& sample, const EventFormat& e
 
 
 // OUR LEPTON CUTS
-
-
-
+  if(!Manager()->ApplyCut(numElectron==2 && numMuon==0, "2_Electrons")) return true;
+  if(!Manager()->ApplyCut(numElectron==1 && numMuon==1, "1_Electron_1_Muon")) return true;
+  if(!Manager()->ApplyCut(numElectron==0 && numMuon==2, "2_Muons")) return true;
 
 
   // Other preselection cuts
