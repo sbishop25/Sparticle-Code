@@ -365,7 +365,7 @@ for (MAuint32 lep = 0; lep < SignalLeptons.size(); lep++){
   Manager()->SetCurrentEventWeight(myWeight*0.85);
 
   MAbool is_pt = false;
-  if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>0.);
+  if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>25.);
   if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
                           "OS dilep. with $p^l_T>25$ [GeV]")) return true;
 
