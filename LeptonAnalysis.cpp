@@ -190,14 +190,22 @@ bool atlas_susy_2018_32_copy::Initialize(const MA5::Configuration& cfg, const st
   // Manager()->AddCut("$M_{T2} \\in [120, 160]$ [GeV]",     mt2_120_160);
 
   // Histogram declaration
-  Manager()->AddHisto("MT2-SF-0J",9, 100., 280., SF0J);
-  Manager()->AddHisto("MT2-SF-1J",9, 100., 280., SF1J);
-  Manager()->AddHisto("MT2-DF-0J",9, 100., 280., DF0J);
-  Manager()->AddHisto("MT2-DF-1J",9, 100., 280., DF1J);
-plot_MET1 = new TH1F("plot_MET1", "MT2-SF-0J", 9, 100, 280);
-plot_MET2 = new TH1F("plot_MET2", "MT2-SF-1J", 9, 100, 280);
-plot_MET3 = new TH1F("plot_MET3", "MT2-DF-0J", 9, 100, 280);
-plot_MET4 = new TH1F("plot_MET4", "MT2-DF-1J", 9, 100, 280);
+  // Manager()->AddHisto("MT2-SF-0J",9, 100., 280., SF0J);
+  // Manager()->AddHisto("MT2-SF-1J",9, 100., 280., SF1J);
+  // Manager()->AddHisto("MT2-DF-0J",9, 100., 280., DF0J);
+  // Manager()->AddHisto("MT2-DF-1J",9, 100., 280., DF1J);
+Manager()->AddHisto("MT2_0J_ee",9, 100., 280., "SR_0J_ee");
+Manager()->AddHisto("MT2_0J_em",9, 100., 280., "SR_0J_em");
+Manager()->AddHisto("MT2_0J_mm",9, 100., 280., "SR_0J_mm");
+
+
+plot_MET1 = new TH1F("plot_MET1", "MT2_0J_ee", 9, 100, 280);
+plot_MET1 = new TH1F("plot_MET1", "MT2_0J_em", 9, 100, 280);
+plot_MET1 = new TH1F("plot_MET1", "MT2_0J_mm", 9, 100, 280);
+
+// plot_MET2 = new TH1F("plot_MET2", "MT2-SF-1J", 9, 100, 280);
+// plot_MET3 = new TH1F("plot_MET3", "MT2-DF-0J", 9, 100, 280);
+// plot_MET4 = new TH1F("plot_MET4", "MT2-DF-1J", 9, 100, 280);
 
   // Exit
   return true;
