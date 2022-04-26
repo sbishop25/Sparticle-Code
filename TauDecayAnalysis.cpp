@@ -1,4 +1,4 @@
-#include "SampleAnalyzer/User/Analyzer/atlas_susy_2018_32_copy.h"
+#include "SampleAnalyzer/User/Analyzer/TauDecayAnalysis.h"
 #include <TFile.h>
 #include <TH1F.h>
 using namespace MA5;
@@ -11,7 +11,7 @@ template<typename T1, typename T2> std::vector<const T1*>
 // Initialize
 // function called one time at the beginning of the analysis
 // -----------------------------------------------------------------------------
-bool atlas_susy_2018_32_copy::Initialize(const MA5::Configuration& cfg, const std::map<std::string,std::string>& parameters)
+bool TauDecayAnalysis::Initialize(const MA5::Configuration& cfg, const std::map<std::string,std::string>& parameters)
 {
 
   INFO << "   <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>" << endmsg;
@@ -200,9 +200,9 @@ Manager()->AddHisto("MT2_0J_em",9, 100., 280., "SR_0J_em");
 Manager()->AddHisto("MT2_0J_mm",9, 100., 280., "SR_0J_mm");
 
 
-plot_MET1 = new TH1F("plot_MET1", "MT2_0J_ee", 9, 100, 280);
-plot_MET2 = new TH1F("plot_MET2", "MT2_0J_em", 9, 100, 280);
-plot_MET3 = new TH1F("plot_MET3", "MT2_0J_mm", 9, 100, 280);
+// plot_MET1 = new TH1F("plot_MET1", "MT2_0J_ee", 9, 100, 280);
+// plot_MET2 = new TH1F("plot_MET2", "MT2_0J_em", 9, 100, 280);
+// plot_MET3 = new TH1F("plot_MET3", "MT2_0J_mm", 9, 100, 280);
 
 // plot_MET2 = new TH1F("plot_MET2", "MT2-SF-1J", 9, 100, 280);
 // plot_MET3 = new TH1F("plot_MET3", "MT2-DF-0J", 9, 100, 280);
@@ -216,21 +216,21 @@ plot_MET3 = new TH1F("plot_MET3", "MT2_0J_mm", 9, 100, 280);
 // Finalize
 // function called one time at the end of the analysis
 // -----------------------------------------------------------------------------
-void atlas_susy_2018_32_copy::Finalize(const SampleFormat& summary,
+void TauDecayAnalysis::Finalize(const SampleFormat& summary,
                                   const std::vector<SampleFormat>& files){
-TFile* output = new TFile("output.root", "RECREATE");
-plot_MET1->Write();
-plot_MET2->Write();
-plot_MET3->Write();
-// plot_MET4->Write();
-output->Close();
+// TFile* output = new TFile("output.root", "RECREATE");
+// plot_MET1->Write();
+// plot_MET2->Write();
+// plot_MET3->Write();
+// // plot_MET4->Write();
+// output->Close();
 }
 
 // -----------------------------------------------------------------------------
 // Execute
 // function called each time one event is read
 // -----------------------------------------------------------------------------
-bool atlas_susy_2018_32_copy::Execute(SampleFormat& sample, const EventFormat& event)
+bool TauDecayAnalysis::Execute(SampleFormat& sample, const EventFormat& event)
 {
   // Event weight
   MAdouble64 myWeight;
@@ -424,15 +424,15 @@ for (MAuint32 t = 0; t < SignalTaus.size(); t++) {
   Manager()->FillHisto("MT2_0J_em",mt2);
   Manager()->FillHisto("MT2_0J_mm",mt2);
   // Manager()->FillHisto("MT2-DF-1J",mt2);
-if (nj == 0 && numElectron==2 && numMuon==0) {
-  plot_MET1->Fill(mt2);
-}
-if (nj == 0 && numElectron==1 && numMuon==1) {
-  plot_MET2->Fill(mt2);
-}
-if (nj == 0 && numElectron==0 && numMuon==2) {
-  plot_MET3->Fill(mt2);
-}
+// if (nj == 0 && numElectron==2 && numMuon==0) {
+//   plot_MET1->Fill(mt2);
+// }
+// if (nj == 0 && numElectron==1 && numMuon==1) {
+//   plot_MET2->Fill(mt2);
+// }
+// if (nj == 0 && numElectron==0 && numMuon==2) {
+//   plot_MET3->Fill(mt2);
+// }
 // if (nj == 1 && hasOSOF == 1) {
 //   plot_MET4->Fill(mt2);
 // }
