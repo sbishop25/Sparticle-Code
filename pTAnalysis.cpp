@@ -376,33 +376,33 @@ for (MAuint32 lep = 0; lep < SignalLeptons.size(); lep++){
                           "OS dilep. with $p^l_T>0$ [GeV]")) return true;
 
   //PT Cuts
-  MAbool is_pt = false;
+  is_pt = false;
   if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>1.);
   if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
                           "OS dilep. with $p^l_T>1$ [GeV]")) return true;
 
-  MAbool is_pt = false;
+  is_pt = false;
   if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>5.);
   if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
                           "OS dilep. with $p^l_T>5$ [GeV]")) return true;
 
-  MAbool is_pt = false;
+  is_pt = false;
   if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>10.);
   if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
   "OS dilep. with $p^l_T>10$ [GeV]")) return true;
 
-  MAbool is_pt = false;
+  is_pt = false;
   if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>15.);
   if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
   "OS dilep. with $p^l_T>15$ [GeV]")) return true;
 
-  MAbool is_pt = false;
+  is_pt = false;
   if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>20.);
   if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
   "OS dilep. with $p^l_T>20$ [GeV]")) return true;
 
 
-  MAbool is_pt = false;
+  is_pt = false;
   if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>25.);
   if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
   "OS dilep. with $p^l_T>25$ [GeV]")) return true;
