@@ -89,12 +89,14 @@ bool pTAnalysis::Initialize(const MA5::Configuration& cfg, const std::map<std::s
 
   // Declaration of the preselection cuts
   Manager()->AddCut("OS dilep. with $p^l_T>0$ [GeV]");
-  Manager()->AddCut("OS dilep. with $p^l_T>1$ [GeV]");
-  Manager()->AddCut("OS dilep. with $p^l_T>5$ [GeV]");
+  // Manager()->AddCut("OS dilep. with $p^l_T>1$ [GeV]");
+  // Manager()->AddCut("OS dilep. with $p^l_T>5$ [GeV]");
   Manager()->AddCut("OS dilep. with $p^l_T>10$ [GeV]");
   Manager()->AddCut("OS dilep. with $p^l_T>15$ [GeV]");
   Manager()->AddCut("OS dilep. with $p^l_T>20$ [GeV]");
   Manager()->AddCut("OS dilep. with $p^l_T>25$ [GeV]");
+  Manager()->AddCut("OS dilep. with $p^l_T>30$ [GeV]");
+  Manager()->AddCut("OS dilep. with $p^l_T>35$ [GeV]");
   // Manager()->AddCut("$m_{l_1,l_2}>25$ [GeV]");
   Manager()->AddCut("b veto");
 
@@ -376,15 +378,15 @@ for (MAuint32 lep = 0; lep < SignalLeptons.size(); lep++){
                           "OS dilep. with $p^l_T>0$ [GeV]")) return true;
 
   //PT Cuts
-  is_pt = false;
-  if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>1.);
-  if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
-                          "OS dilep. with $p^l_T>1$ [GeV]")) return true;
-
-  is_pt = false;
-  if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>5.);
-  if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
-                          "OS dilep. with $p^l_T>5$ [GeV]")) return true;
+  // is_pt = false;
+  // if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>1.);
+  // if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
+  //                         "OS dilep. with $p^l_T>1$ [GeV]")) return true;
+  //
+  // is_pt = false;
+  // if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>5.);
+  // if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
+  //                         "OS dilep. with $p^l_T>5$ [GeV]")) return true;
 
   is_pt = false;
   if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>10.);
@@ -406,6 +408,16 @@ for (MAuint32 lep = 0; lep < SignalLeptons.size(); lep++){
   if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>25.);
   if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
   "OS dilep. with $p^l_T>25$ [GeV]")) return true;
+
+  is_pt = false;
+  if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>30.);
+  if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
+  "OS dilep. with $p^l_T>30$ [GeV]")) return true;
+
+  is_pt = false;
+  if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>35.);
+  if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
+  "OS dilep. with $p^l_T>35$ [GeV]")) return true;
 
 
   MAdouble64 mll = (SignalLeptons[0]->momentum() + SignalLeptons[1]->momentum()).M();
