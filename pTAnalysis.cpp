@@ -97,6 +97,8 @@ bool pTAnalysis::Initialize(const MA5::Configuration& cfg, const std::map<std::s
   Manager()->AddCut("OS dilep. with $p^l_T>25$ [GeV]");
   Manager()->AddCut("OS dilep. with $p^l_T>30$ [GeV]");
   Manager()->AddCut("OS dilep. with $p^l_T>35$ [GeV]");
+  Manager()->AddCut("OS dilep. with $p^l_T>40$ [GeV]");
+  Manager()->AddCut("OS dilep. with $p^l_T>45$ [GeV]");
   // Manager()->AddCut("$m_{l_1,l_2}>25$ [GeV]");
   Manager()->AddCut("b veto");
 
@@ -416,6 +418,16 @@ for (MAuint32 lep = 0; lep < SignalLeptons.size(); lep++){
 
   is_pt = false;
   if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>35.);
+  if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
+  "OS dilep. with $p^l_T>35$ [GeV]")) return true;
+
+  is_pt = false;
+  if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>40.);
+  if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
+  "OS dilep. with $p^l_T>35$ [GeV]")) return true;
+
+  is_pt = false;
+  if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>45.);
   if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
   "OS dilep. with $p^l_T>35$ [GeV]")) return true;
 
