@@ -88,8 +88,14 @@ bool pTAnalysis::Initialize(const MA5::Configuration& cfg, const std::map<std::s
   // Manager()->AddRegionSelection("SR_SF_1J_MT2_120_160");
 
   // Declaration of the preselection cuts
+  Manager()->AddCut("OS dilep. with $p^l_T>0$ [GeV]");
+  Manager()->AddCut("OS dilep. with $p^l_T>1$ [GeV]");
+  Manager()->AddCut("OS dilep. with $p^l_T>5$ [GeV]");
+  Manager()->AddCut("OS dilep. with $p^l_T>10$ [GeV]");
+  Manager()->AddCut("OS dilep. with $p^l_T>15$ [GeV]");
+  Manager()->AddCut("OS dilep. with $p^l_T>20$ [GeV]");
   Manager()->AddCut("OS dilep. with $p^l_T>25$ [GeV]");
-  Manager()->AddCut("$m_{l_1,l_2}>25$ [GeV]");
+  // Manager()->AddCut("$m_{l_1,l_2}>25$ [GeV]");
   Manager()->AddCut("b veto");
 
   // SF vs DF  and Njet cuts
@@ -145,8 +151,8 @@ bool pTAnalysis::Initialize(const MA5::Configuration& cfg, const std::map<std::s
   // Manager()->AddCut("$m_{l_1,l_2} > 121.2$ [GeV]", SF);
 
   // Other preselection cuts
-  Manager()->AddCut("$\\slashed{E}_T > 110$ [GeV]");
-  Manager()->AddCut("$\\slashed{E}_T$ Sig. $> 10$ [$\\sqrt{\\rm GeV}$]");
+  // Manager()->AddCut("$\\slashed{E}_T > 110$ [GeV]");
+  // Manager()->AddCut("$\\slashed{E}_T$ Sig. $> 10$ [$\\sqrt{\\rm GeV}$]");
 
   // MT2 cuts
   // std::string mt2_100_105[] = {"SR_DF_0J_MT2_100_105", "SR_DF_1J_MT2_100_105",
@@ -365,13 +371,45 @@ for (MAuint32 lep = 0; lep < SignalLeptons.size(); lep++){
   Manager()->SetCurrentEventWeight(myWeight*0.85);
 
   MAbool is_pt = false;
+  if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>0.);
+  if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
+                          "OS dilep. with $p^l_T>0$ [GeV]")) return true;
+
+  //PT Cuts
+  MAbool is_pt = false;
+  if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>1.);
+  if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
+                          "OS dilep. with $p^l_T>1$ [GeV]")) return true;
+
+  MAbool is_pt = false;
+  if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>5.);
+  if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
+                          "OS dilep. with $p^l_T>5$ [GeV]")) return true;
+
+  MAbool is_pt = false;
+  if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>10.);
+  if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
+  "OS dilep. with $p^l_T>10$ [GeV]")) return true;
+
+  MAbool is_pt = false;
+  if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>15.);
+  if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
+  "OS dilep. with $p^l_T>15$ [GeV]")) return true;
+
+  MAbool is_pt = false;
+  if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>20.);
+  if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
+  "OS dilep. with $p^l_T>20$ [GeV]")) return true;
+
+
+  MAbool is_pt = false;
   if (SignalLeptons.size()>1) is_pt = (SignalLeptons[1]->pt()>25.);
   if(!Manager()->ApplyCut(hasOS==1 && SignalLeptons.size()==2 && is_pt,
-                          "OS dilep. with $p^l_T>25$ [GeV]")) return true;
+  "OS dilep. with $p^l_T>25$ [GeV]")) return true;
 
 
   MAdouble64 mll = (SignalLeptons[0]->momentum() + SignalLeptons[1]->momentum()).M();
-  if(!Manager()->ApplyCut(mll>25.,"$m_{l_1,l_2}>25$ [GeV]")) return true;
+  // if(!Manager()->ApplyCut(mll>25.,"$m_{l_1,l_2}>25$ [GeV]")) return true;
 
   if(!Manager()->ApplyCut(nb==0,"b veto")) return true;
 
@@ -397,8 +435,8 @@ for (MAuint32 lep = 0; lep < SignalLeptons.size(); lep++){
   // Other preselection cuts
   MAdouble64 METSig = 11.;
   if (HT>0) METSig = MET/sqrt(HT);
-  if(!Manager()->ApplyCut(MET>110.,   "$\\slashed{E}_T > 110$ [GeV]"))                      return true;
-  if(!Manager()->ApplyCut(METSig>10., "$\\slashed{E}_T$ Sig. $> 10$ [$\\sqrt{\\rm GeV}$]")) return true;
+  // if(!Manager()->ApplyCut(MET>110.,   "$\\slashed{E}_T > 110$ [GeV]"))                      return true;
+  // if(!Manager()->ApplyCut(METSig>10., "$\\slashed{E}_T$ Sig. $> 10$ [$\\sqrt{\\rm GeV}$]")) return true;
 
   // Histograms
   MAdouble64 mt2 = PHYSICS->Transverse->MT2(SignalLeptons[0],SignalLeptons[1],event.rec()->MET(),0.);
